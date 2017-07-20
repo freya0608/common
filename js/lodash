@@ -1,0 +1,34 @@
+ var students = [{
+        groupid: '123',
+        groupname:'aaa',
+        classnick: '小红'
+    },
+        {
+            groupid: '45',
+            groupname:'bbb',
+            classnick: '小黑'
+        },
+        {
+            groupid: '',
+            groupname:'',
+            classnick: '张三'
+        },
+        {
+            groupid: '233',
+            groupname:'ccc',
+            classnick: '李四'
+        },
+        {
+            groupid: '45',
+            groupname:'bbb',
+            classnick: '王五'
+        }];
+
+     var grouped = _.groupBy(students,'groupid');
+     var keys = _.keys(grouped);
+     var result = keys.map( v=>({
+        g_count:grouped[v].length,
+        g_id:v,
+        g_name:grouped[v][0].groupname,
+        classnick:grouped[v][0].classnick,
+    }));
